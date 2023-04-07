@@ -290,3 +290,14 @@ input[type=radio]:checked+span {
 }
 
 /* hover */
+
+/* section NavBar */
+.navbar-expand-lg .navbar-collapse{
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: flex-end;
+ 
+ }
+/* section footer */
+
+
