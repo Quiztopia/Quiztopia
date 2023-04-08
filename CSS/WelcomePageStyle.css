@@ -1,5 +1,5 @@
   /* -----main---- */
-  .first-section{
+.first-section{
     display: flex;
     flex-direction: row;
     background: rgb(77,71,195);
@@ -14,8 +14,8 @@
 }
 @media (max-width: 767px) {
     .first-section {
-      display: flex;
-      flex-direction: column;
+    display: flex;
+    flex-direction: column;
     }
     .img{
         width: 23rem;
@@ -24,7 +24,7 @@
     .text{
         padding-top: 3rem;
     }
-  }
+}
 .text h1, .text h2 , .second-section h4 , .second-section h2 {
     color: #fff;
 }
