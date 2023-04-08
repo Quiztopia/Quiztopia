@@ -110,6 +110,7 @@ body {
   /* -----main---- */
 
   .first-section{
+
     display: flex;
     flex-direction: row;
     height: 80vh;
@@ -121,8 +122,8 @@ body {
 }
 @media (max-width: 767px) {
     .first-section {
-      display: flex;
-      flex-direction: column;
+    display: flex;
+    flex-direction: column;
     }
     .img{
         width: 23rem;
@@ -131,12 +132,14 @@ body {
     .text{
         padding-top: 3rem;
     }
+
   }
   @media (max-width: 350px) {
     .img{
         width: 19rem;
 
   }}
+
 .text h1, .text h2 , .second-section h4 , .second-section h2 {
     color: #fff;
 }
