@@ -9,14 +9,7 @@ The Quiz will be timed. If you fail to complete the quiz before the timer runs o
 
 
 
-
-
-
-
-
-
-
-* ##### Project Team ![](images/teamwork.png)
+* #### Project Team ![](images/teamwork.png)
   * Bushra Abu Rahma
   * Omar Hassouna
   * Amer Khawalda
