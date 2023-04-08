@@ -20,19 +20,19 @@
 
 <body>
 
-<!-- Start Header -->
-<header class="navBar">
-    <nav class="header" id="header">
-        <div class="navcontainer">
-            <a href="../index.html" class="logo ms-5"><img src="../images/LogoQuizTopia.png" alt="Logo" height="60"></a>
-            <ul class="main-nav">
-                <li><a href="../index.html" style="  font-family: 'Cairo', sans-serif;"><ion-icon name="home-outline"></ion-icon> &nbsp;&nbsp;Home</a></li>
-                <li><a href="../index.html">Log Out &nbsp;<ion-icon name="log-in-outline"></ion-icon></a></li>
-            </ul>
-        </div>
-    </nav>
-</header>
-<!-- End Header -->
+    <!-- Start Header -->
+    <header class="navBar">
+        <nav class="header" id="header">
+            <div class="navcontainer">
+                <a href="../index.html" class="logo ms-5"><img src="../images/LogoQuizTopia.png" alt="Logo" height="60"></a>
+                <ul class="main-nav">
+                    <li><a href="../index.html" style="  font-family: 'Cairo', sans-serif;"><ion-icon name="home-outline"></ion-icon> &nbsp;&nbsp;Home</a></li>
+                    <li><a href="../index.html">Log Out &nbsp;<ion-icon name="log-in-outline"></ion-icon></a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <!-- End Header -->
 
 
     <div class="container">
@@ -56,7 +56,7 @@
                     <h3>5</h3>
                 </div>
             </div>
-            <div class="line">.</div>
+            <div class="line"></div>
         </div>
         <!-- section number of Question -->
 
@@ -80,25 +80,25 @@
                 <div class="container-radio">
 
                     <div class="parent">
-                        <label><input type="radio" class="radio" name="answers" /><span>A</span></label>
-                        <label for="answers">User Interfoce and User Experience</label>
+                        <label><input id="a" type="radio" class="radio" name="answers" placeholder="A" /><span>A</span></label>
+                        <label for="a">User Interfoce and User Experience</label>
                     </div>
                     <div class="parent">
-                        <label><input type="radio" class="A" name="answers" /><span>B</span></label>
+                        <label><input id="b" type="radio" class="A" name="answers" /><span>B</span></label>
 
-                        <label for="answers">User Interfoce and User Experience</label>
+                        <label for="b">User Interfoce and User Experience</label>
                     </div>
                     <div class="parent">
-                        <label><input type="radio" class="A" name="answers" /><span>C</span></label>
-                        <label>User Interfoce and User Experience</label>
+                        <label><input id="c" type="radio" class="A" name="answers" /><span>C</span></label>
+                        <label for="c">User Interfoce and User Experience</label>
                     </div>
                     <div class="parent active">
-                        <label><input type="radio" class="A" name="answers" /><span>D</span></label>
-                        <label for="answers">User Interfoce and User Experience</label>
+                        <label><input id="d" type="radio" class="A" name="answers" /><span>D</span></label>
+                        <label for="d">User Interfoce and User Experience</label>
                     </div>
                     <div class="parent">
-                        <label><input type="radio" class="A" name="answers" /><span>E</span></label>
-                        <label for="answers">User Interfoce and User Experience</label>
+                        <label><input id="e" type="radio" class="A" name="answers" /><span>E</span></label>
+                        <label for="e">User Interfoce and User Experience</label>
                     </div>
                 </div>
             </div>
@@ -116,7 +116,6 @@
     </div>
 
 
-
     <!-- section footer -->
     <footer class="footer text-center text-lg-start shadow-lg" id="footerEdit">
         <!-- Copyright -->
@@ -126,11 +125,8 @@
     <!-- section footer -->
 
 
-
-    
     <!-- script -->
-    <script src="/Question.js">
-    </script>
+    <script src="../app.js"></script>
     <script src="Question.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
