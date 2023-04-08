@@ -1,17 +1,11 @@
+const nextBtn = document.querySelector(".next");
+const circles = document.querySelectorAll(".circle");
 
-let number1 = document.getElementById("num");
-let number2 = document.getElementById("num1");
-let number3 = document.getElementById("num2");
-let number4 = document.getElementById("num3");
-let number5 = document.getElementById("num4");
+let currentCircle = 0;
 
-let next = document.querySelector(".next")
-
-number.addEventListener("click",()=>{
-    number1.classList.toggle("Active")
-})
-
-
-
-
+nextBtn.addEventListener("click", () => {
+  circles[currentCircle].classList.remove("active");
+  currentCircle = (currentCircle + 1) % circles.length;
+  circles[currentCircle].classList.add("active");
+});
 

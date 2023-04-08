@@ -86,7 +86,7 @@ body {
 /* start Nav */
 
 .nav-link {
-    color: var(--Pink-color);;
+    color: #4D47C3;
     font-weight: 700;
 }
 
@@ -102,7 +102,6 @@ body {
 
 .form-control {
     background-color: #F0EFFF;
-
 }
 
 /* End Nav */
