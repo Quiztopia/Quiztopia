@@ -33,6 +33,4 @@ The Quiz will be timed. If you fail to complete the quiz before the timer runs o
 
 ▷ [Live URL](https://quiztopia.github.io/Quiztopia/)
 
-▷ [Organization URL](https://github.com/Quiztopia/Quiztopia)
-
 ▷ [Wireframe & MockUp](https://www.figma.com/file/qlA5OQvLtPGAIsFNWqq22q/Untitled?node-id=0%3A1&t=pvwXaWhTsis4uhnj-1)
