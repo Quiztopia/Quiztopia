@@ -17,11 +17,11 @@ body {
     font-family: "Cairo", sans-serif;
 }
 
-a {
+.container a {
     text-decoration: none;
 }
 
-ul {
+.container ul {
     list-style: none;
     margin: 0;
     padding: 0;
@@ -110,7 +110,8 @@ header{
 }
 
 /* End Global Rules */
-/* Start Header */
+
+/* Start nav section*/
 .header {
     position: relative;
 }
@@ -192,15 +193,15 @@ header{
     left: 0;
 }
 
-/* End Header */
+/* End nav section*/
 
-/* Start hero */
+/* Start hero section*/
 .hero {
     position: relative;
 }
 
 .hero .container {
-    min-height: calc(90vh - 62px);
+    min-height: calc(100vh - 62px);
     display: flex;
     align-items: center;
     padding-bottom: 120px;
@@ -235,11 +236,9 @@ header{
 .hero .text p {
     font-size: 3rem;
     line-height: 1.7;
-    /* margin-left: 5rem; */
     background: #4D47C3;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    /* max-width: 500px;*/
 }
 
 @media (max-width: 991px) {
@@ -267,9 +266,9 @@ header{
     }
 }
 
-/* End hero */
+/* End hero section*/
 
-/* Start About */
+/* Start About section*/
 .about-Section{
     background:#fff;
 }
@@ -353,9 +352,9 @@ header{
     }
 }
 
-/* End About */
+/* End About section*/
 
-/*start animation*/
+/* Start animation */
 
 @keyframes left-move {
     50% {
@@ -398,4 +397,4 @@ header{
         top: -50px;
     }
 }
-/*end animation*/
+/* End animation */

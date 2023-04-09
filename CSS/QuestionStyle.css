@@ -1,10 +1,6 @@
-/*font google*/
-
-/*font google*/
-
 /* variable */
 :root {
-    --mainColor: background:linear-gradient(0deg, #A7A3FF 0%, rgba(255, 255, 255, 1) 0%, #9792f1 30%);
+    --mainColor: linear-gradient(0deg, #A7A3FF 0%, rgba(255, 255, 255, 1) 0%, #9792f1 30%);
     --scondColor: linear-gradient(122.76deg, #A7A3FF -35.72%, #4D47C3 172.73%);
     --fourColor: rgba(255, 255, 255, 0.4);
     --textColor: #333333;
@@ -35,25 +31,11 @@ body {
     background: linear-gradient(0deg, #d8d8d8 0%, #9792f1 60%);
     background-repeat: no-repeat;
     background-attachment: fixed;
-
-}
-
-
-.container {
-    margin-top: 80px;
-    width: 100%;
-    height: 80vh;
-    margin-bottom: 100px;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: space-between;
 }
 
 
 
 
-/* section header */
 .navBar{
     background: #fff0
   }
@@ -86,6 +68,7 @@ body {
   
   /* End Global Rules */
   
+  /* Start nav section*/
   .header {
     position: relative;
   
@@ -146,7 +129,7 @@ body {
     width: 100%;
     height: 4px;
     background-color: var(--main-color);
-    top: 68px;
+    top: 0px;
     left: -100%;
     transition: var(--main-transition);
   }
@@ -159,9 +142,20 @@ body {
   .header .main-nav>li>a:hover::before {
     left: 0;
   }
-  /* End Header */
+/* End nav section*/
+
 /* section header */
 
+.container {
+    margin-top: 80px;
+    width: 100%;
+    height: 80vh;
+    margin-bottom: 100px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+}
 
 /*number of Question */
 .containerNumber {
