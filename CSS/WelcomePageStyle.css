@@ -13,6 +13,7 @@ body {
 :root {
     --main-color: #4D47C3;
     --main-transition: 0.3s;
+    --Pink-color: #4D47C3;
 }
 
 .navBar{
@@ -35,7 +36,12 @@ body {
 }
 
 /* End Global Rules */
-
+.hero-name {
+    color: var(--Pink-color);
+    font-size: 4rem;
+    text-transform: uppercase;
+    
+}
 .header {
     position: relative;
 }
@@ -143,9 +149,7 @@ body {
 .text h1, .text h2 , .second-section h4 , .second-section h2 {
     color: #fff;
 }
-/* button{
 
-} */
 .second-section h4 , .second-section h2 {
     text-align: center;
     margin-bottom: 1rem;
@@ -196,4 +200,3 @@ button.btn.btn-primary.btn-lg.btn-border-color {
         display: none;
     }
 }
-/* nav edit */
