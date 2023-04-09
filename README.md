@@ -7,7 +7,14 @@ The website will compare the user's (candidate) answers with the correct answers
 
 The Quiz will be timed. If you fail to complete the quiz before the timer runs out, you will be taken to the results page regardless of the remaining questions. Therefore, it is essential that you pay attention to the timer!
 
-
+* #### Project Team ![](images/teamwork.png)
+  * Issam Addi
+  * Bushra Abu Rahma
+  * Omar Hassouna
+  * Amer Khawalda
+  * Ali-Elterawe
+  * Abdulrahman Al-haleme
+  * Amani Zyoud
 
 ##### **⚙️ TOOLS**
    * **HTML  ![](images/html-5.png)**
@@ -26,4 +33,5 @@ The Quiz will be timed. If you fail to complete the quiz before the timer runs o
 
 ▷ [Wireframe & MockUp](https://www.figma.com/file/qlA5OQvLtPGAIsFNWqq22q/Untitled?node-id=0%3A1&t=pvwXaWhTsis4uhnj-1)
 
-▷ [Organization Link](https://github.com/Quiztopia/Quiztopia)
+▷ [Trello](https://trello.com/w/project2quizwebsite)
+

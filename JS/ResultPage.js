@@ -72,7 +72,7 @@ resultButton.disabled = true;
 
 
 
-function changeResult(result, correctAnswer, incorrectAnswer, ){
+function changeResult(result, correctAnswer, incorrectAnswer){
     if(result === "pass"){
         document.getElementById("correctAns").textContent = correctAnswer + "/5";
         document.getElementById("incorrectAns").textContent = incorrectAnswer + "/5";
