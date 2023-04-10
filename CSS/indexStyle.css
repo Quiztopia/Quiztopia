@@ -100,7 +100,10 @@ section {
     overflow: hidden;
     font-size: 18px;
     transition: var(--main-transition);
+    text-decoration: none;
 }
+
+
 
 @media (max-width: 767px) {
     .header .main-nav>li>a {
@@ -144,6 +147,10 @@ section {
     z-index: 0;
     margin-top: 1rem;
     list-style: none;
+    background-color: #4d47c396;
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: 1px 5px 3px rgb(27, 25, 25);
 }
 
 .button::before {
@@ -180,6 +187,8 @@ section {
     padding-right: 15px;
     color: #000000;
     animation: none;
+    text-shadow: 2px 2px 3px rgb(80, 76, 76);
+    font-size: 4rem;
 }
 
 .waviy span {
@@ -368,4 +377,16 @@ section {
     html {
         font-size: 50%;
     }
+}
+
+.display-4{
+    text-shadow: 3px 1px 3px #0000008c;
+
+}
+
+.display-1{
+    color: #4D47C3;
+    text-transform: uppercase;
+    text-shadow: 1px 3px 3px rgb(27, 25, 25);
+
 }
