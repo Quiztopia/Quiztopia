@@ -1,9 +1,25 @@
+
+let userInformations = sessionStorage.getItem("UserInformations");
+let userInfo = JSON.parse(userInformations);
+
+let userInformationsResults = sessionStorage.getItem("UserInformationsResult");
+let userInfoResult = JSON.parse(userInformationsResults);
+
+console.log(userInfoResult);
+
+let result = userInfoResult.result;
+
+console.log(result);
+
+changeResult(userInfoResult.result, userInfoResult.correctAnswer, userInfoResult.incorrectAnswer);
+
 let resultButton = document.getElementById("resultButton");
-let resultTableArrat = [
-{ id: 1, Question: "what's yore name", answer: "User Interface and User Experience", status: false },
-{ id: 2, Question: "how old are you", answer: "User Interface and User Experience", status: true },
-{ id: 3, Question: "Where do you live", answer: "User Interface and User Experience", status: false }
-];
+
+// let resultTableArrat = [
+// { id: 1, Question: "what's yore name", answer: "User Interface and User Experience", status: false },
+// { id: 2, Question: "how old are you", answer: "User Interface and User Experience", status: true },
+// { id: 3, Question: "Where do you live", answer: "User Interface and User Experience", status: false }
+// ];
 
 let headTable = document.getElementById("headTable");
 let bodyTable = document.getElementById("bodyTable");
@@ -16,47 +32,56 @@ let tableHeadColumn1 = document.createElement("th");
 tableHeadColumn1.textContent = "Question Number";
 tableHeadRow.appendChild(tableHeadColumn1);
 
+console.log(tableHeadColumn1);
+
 let tableHeadColumn2 = document.createElement("th");
 tableHeadColumn2.textContent = "Question ";
 tableHeadRow.appendChild(tableHeadColumn2);
+
+console.log(tableHeadColumn2);
+
 
 let tableHeadColumn3 = document.createElement("th");
 tableHeadColumn3.textContent = "Your Answer";
 tableHeadRow.appendChild(tableHeadColumn3);
 
+console.log(tableHeadColumn3);
+
 let tableHeadColumn4 = document.createElement("th");
 tableHeadColumn4.textContent = "Status";
 tableHeadRow.appendChild(tableHeadColumn4);
 
+console.log(tableHeadColumn4);
+
 headTable.appendChild(tableHeadRow);
 
 
-for (let i = 0; i < resultTableArrat.length; i++) {
+for (let i = 0; i < userInfo.length; i++) {
     let butt = document.createElement("button");
 
     let tableBodyRow = document.createElement("tr");
 
     let tableBodyColumn1 = document.createElement("td");
-    tableBodyColumn1.textContent = `# ${resultTableArrat[i].id}`;
+    tableBodyColumn1.textContent = `#${userInfo[i].id}`;
     tableBodyRow.appendChild(tableBodyColumn1);
 
     let tableBodyColumn2 = document.createElement("td");
-    tableBodyColumn2.textContent = `${resultTableArrat[i].Question}`;
+    tableBodyColumn2.textContent = `${userInfo[i].question}`;
     tableBodyRow.appendChild(tableBodyColumn2);
 
     let tableBodyColumn3 = document.createElement("td");
-    tableBodyColumn3.textContent = `${resultTableArrat[i].answer}`;
+    tableBodyColumn3.textContent = `${userInfo[i].UserAnswer}`;
     tableBodyRow.appendChild(tableBodyColumn3);
 
     let tableBodyColumn4 = document.createElement("td");
-    if (resultTableArrat[i].status == false){
-        resultTableArrat[i].status = "Incorrect"
-        butt.textContent = resultTableArrat[i].status;
+    if (userInfo[i].status == false){
+        userInfo[i].status = "Incorrect"
+        butt.textContent = userInfo[i].status;
         butt.classList.add("resultStatusButtonInCorrect");
     }
     else{
-        resultTableArrat[i].status = "correct"
-        butt.textContent = resultTableArrat[i].status;
+        userInfo[i].status = "correct"
+        butt.textContent = userInfo[i].status;
         butt.classList.add("resultStatusButtonCorrect");
     }
     tableBodyColumn4.appendChild(butt);
@@ -67,9 +92,6 @@ for (let i = 0; i < resultTableArrat.length; i++) {
 resultButton.disabled = true;
 
 });
-
-
-
 
 
 function changeResult(result, correctAnswer, incorrectAnswer){
