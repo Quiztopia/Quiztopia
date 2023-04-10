@@ -250,21 +250,23 @@ section {
 }
 
 @media(max-width:991px) {
-    .home div {
-        width: 45%;
-    }
-
     .home p {
-        text-align: center;
-        font-size: 2.5rem;
+        display: flex;
+        justify-content: center;
     }
 
     .home .oo {
+        width: 100%;
+    }
+
+    .home .waviy {
         text-align: center;
     }
 
     .home .button {
-        text-align: center;
+        display: flex;
+        justify-content: center;
+        margin: 0 12rem;
     }
 
     .home .image {
