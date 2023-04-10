@@ -1,23 +1,17 @@
 
-// id, Question, answer, status, result, # of correct answers, # of Incorrect answers.
-
-let user_resultTable = [{id: '1', question: 'What ..', answer: 'anwser', status: true},
-{id: '2', question: 'What ..', answer: 'anwser2', status: false}];
-
-let resultInfo = [{result: 'pass', correctAnswer: 0, incorrectAnswer: 5}];
-
-sessionStorage.setItem('UserInformationsResult', JSON.stringify(resultInfo));
-sessionStorage.setItem('UserInformations', JSON.stringify(user_resultTable));
-
 let userInformations = sessionStorage.getItem("UserInformations");
 let userInfo = JSON.parse(userInformations);
 
 let userInformationsResults = sessionStorage.getItem("UserInformationsResult");
 let userInfoResult = JSON.parse(userInformationsResults);
 
-let RESULT = resultInfo[0].result;
+console.log(userInfoResult);
 
-changeResult(RESULT, resultInfo[0].correctAnswer, resultInfo[0].incorrectAnswer);
+let result = userInfoResult.result;
+
+console.log(result);
+
+changeResult(userInfoResult.result, userInfoResult.correctAnswer, userInfoResult.incorrectAnswer);
 
 let resultButton = document.getElementById("resultButton");
 
@@ -76,7 +70,7 @@ for (let i = 0; i < userInfo.length; i++) {
     tableBodyRow.appendChild(tableBodyColumn2);
 
     let tableBodyColumn3 = document.createElement("td");
-    tableBodyColumn3.textContent = `${userInfo[i].answer}`;
+    tableBodyColumn3.textContent = `${userInfo[i].UserAnswer}`;
     tableBodyRow.appendChild(tableBodyColumn3);
 
     let tableBodyColumn4 = document.createElement("td");
