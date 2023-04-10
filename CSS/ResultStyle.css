@@ -236,3 +236,33 @@ body {
 }
 
 /* End Header */
+/* 
+/start result Status Button /
+/ correct/ */
+.resultStatusButtonCorrect{
+background: #ebf9f1;
+border-radius: 22px;
+width: 69px;
+height: 31px;
+border-color: transparent;
+color: #1f9254;
+font-size: 15px;
+}
+
+/* / incorrect/ */
+.resultStatusButtonInCorrect{
+background: #fbe7e8;
+border-radius: 22px;
+width: 69px;
+height: 31px;
+border-color: transparent;
+color: red;
+font-size: 15px;
+}
+
+/* /end result Status Button / */
+
+#resultTable{
+  background-color: rgba(255, 255, 255, 0.162);
+  font-family: 'Ubuntu';
+}
