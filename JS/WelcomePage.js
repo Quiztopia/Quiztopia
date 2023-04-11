@@ -8,8 +8,10 @@ function appendUserName(user, idElement) {
     element.textContent = user.userName;
 }
 
+
 try {
     let user = getUser();
+    console.log(user);
     appendUserName(user, 'heroName');
 
 } catch (errMsg) {

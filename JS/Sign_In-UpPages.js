@@ -1,24 +1,40 @@
+
+
 class Users {
 
-    constructor(email, userName, password, examType) {
+    constructor(email, userName, password, examType, confirmPassword) {
         this.email = email;
         this.userName = userName;
         this.password = password;
         this.examType = examType;
+        this.confirmPassword = confirmPassword;
     }
 
     static signInCheck(email, password) {
-
         let arrUsers = Users.getUsersInfo();
-
+        let emailCheck = false;
+        let passwordCheck = false;
+        let checking = [];
         for (let index = 0; index < arrUsers.length; index++) {
-
+            
             if (arrUsers[index].email === email) {
-                if (arrUsers[index].password === password)
-                    return arrUsers[index];
+                emailCheck = true;
             }
-        }
-        return false;
+
+                if (arrUsers[index].password === password)
+                {
+                    passwordCheck = true;
+ 
+                }
+                checking.push(arrUsers[index]);
+                checking.push(emailCheck);
+                checking.push(passwordCheck);
+
+                return checking;
+            }
+  
+        
+       
     }
 
     static UserNamecheck(arrUsers, userName) {
@@ -81,18 +97,54 @@ try {
             event.target.userName.value,
             event.target.password.value,
             event.target.examType.value,
+            event.target.confirmPassword.value
+
         )
 
         event.preventDefault();
 
-        console.log(newUser);
+        warningE.textContent ='';
+        warningP.textContent ='';
+        warningEx.textContent ='';
+        warningN.textContent ='';
+        warningCp.textContent ='';
 
-        createNewUser(newUser);
+
+        emailBorder.style.border = '2px solid #1f14ee66';
+        userNameBorder.style.border = '2px solid #1f14ee66';
+        examborder.style.border = '2px solid #1f14ee66';
+        passwordBorder.style.border = '2px solid #1f14ee66';
+        passwordCon.style.border = '2px solid #1f14ee66';
+        inputsRules(newUser);
+     
+        
     });
 } catch (errMsg) { }
 
-// 
+
+let warningE = document.getElementById('warningEmail');
+let warningP = document.getElementById('warningPassword');
+let warningN = document.getElementById('warningUserName');
+let warningEx = document.getElementById('warningExam');
+let warningCp = document.getElementById('warningConfirmPassword');
+let emailBorder = document.getElementById('email');
+let userNameBorder = document.getElementById('userName');
+let examborder = document.getElementById('examType');
+let passwordBorder = document.getElementById('password');
+let passwordCon = document.getElementById('confirmPassword');
+
+let arrUsers = Users.getUsersInfo();
+
+// Validation Function
 function inputsRules(newUser) {
+
+
+
+
+    let resultUserEmail = Users.UserEmailCheck(arrUsers, newUser.email);
+    let resultUserName = Users.UserNamecheck(arrUsers, newUser.userName);
+
+
 
     // without spaces
     const patternUesrName = /^[A-z0-9]+$/;
@@ -105,63 +157,107 @@ function inputsRules(newUser) {
 
     // console.log (!patternEmail.test(newUser.email),newUser.email, !patternUesrName.test(newUser.userName), newUser.userName,  !patternPassword.test(newUser.password), newUser.password)
 
-    if (!patternEmail.test(newUser.email)) {
+        if (newUser.email == ''){
+            warningE.textContent = 'Email is required';
+            emailBorder.style.border = '2px solid red';
+            return false;
+        }
 
-        // let warning = document.getElementById('warningEmail');
-        // warning.textContent = 'Mistake Email';
+        else if (!patternEmail.test(newUser.email)) {
 
-        alert('⚠️ VALIDATION ERROR: Email Format is incorrect.');
+            emailBorder.style.border = '2px solid red';
+            warningE.textContent = 'Email Format is incorrect.';
 
-        return false;
-    }
-    else if (!patternUesrName.test(newUser.userName)) {
 
-        // let warning = document.getElementById('warningUserName');
-        // warning.textContent = 'Mistake UesrName, UesrName it should be without spaces';
-        console.log(patternUesrName.test(newUser.userName), newUser.userName)
-        alert('⚠️ VALIDATION ERROR: UesrName should be without spaces.');
+            return false;
+        }
+        else if(!resultUserEmail){
+            emailBorder.style.border = '2px solid red';
+            warningE.textContent = 'This email address is already registered.';
+        }
 
-        return false;
-    }
-    else if (!patternPassword.test(newUser.password)) {
+        else if(newUser.userName == ''){
+            userNameBorder.style.border = '2px solid red';
+            warningN.textContent = 'Username is required';
+            return false;
+        }
 
-        // let warning = document.getElementById('warningPassword');
-        // warning.textContent = 'Mistake Password, UesrName it should be more than 8 characters, with at least 1 number, uppercase, and special characters';
+        else if (!patternUesrName.test(newUser.userName)) {
 
-        alert('⚠️ VALIDATION ERROR: Password should be more than 8 characters, with at least 1 number, 1 Uppercase and Special character.');
+            userNameBorder.style.border = '2px solid red';
+            warningN.textContent = 'UesrName should be without spaces.';
+            console.log(patternUesrName.test(newUser.userName), newUser.userName);
 
-        return false;
-    }
-    return true;
+            return false;
+        }
+
+        else if(!resultUserName){
+            userNameBorder.style.border = '2px solid red';
+            warningN.textContent = 'Username is already exists!';
+        }
+
+        else if(newUser.examType == "false"){
+            examborder.style.border = '2px solid red';
+            warningEx.textContent = 'Exam Type is required';
+            return false;
+        }
+
+        else if(newUser.password == ''){
+            passwordBorder.style.border = '2px solid red';
+            warningP.textContent = 'Password is required';
+            return false;
+        }
+
+        else if (!patternPassword.test(newUser.password)) {
+
+            passwordBorder.style.border = '2px solid red';
+            warningP.textContent = 'Password should be more than 8 characters, with at least 1 number, 1 Uppercase and Special character.';
+            return false;
+        }
+
+        else if(newUser.password == ''){
+            passwordCon.style.border = '2px solid red';
+            warningP.textContent = 'Confirm Password';
+            return false;
+        }
+
+        else if(newUser.password != newUser.confirmPassword) {
+            passwordCon.style.border = '2px solid red';
+            warningCp.textContent = 'Password mismatch';
+            return false;
+        }
+
+
+        else{
+            
+            createNewUser(newUser);
+        
+            
+        return true;
+        }
 }
 
-// 
+// function take the user to the signIn page.
 function createNewUser(newUser) {
+    warningE.textContent ='';
+    warningP.textContent ='';
+    warningEx.textContent ='';
+    warningN.textContent ='';
+    warningCp.textContent ='';
+ 
 
-    let arrUsers = Users.getUsersInfo();
 
-    const resultInputRulse = inputsRules(newUser);
+  
 
-    let resultUserEmail = Users.UserEmailCheck(arrUsers, newUser.email);
-    let resultUserName = Users.UserNamecheck(arrUsers, newUser.userName);
-
-
-    console.log(resultUserName, resultUserEmail, resultInputRulse);
-
-    if (resultUserName && resultUserEmail && resultInputRulse) {
         arrUsers.push(newUser);
-        Users.setUsersInfo('arrUsers', arrUsers)
+        Users.setUsersInfo('arrUsers', arrUsers);
+        alert("██▓▒░ ►▬ WELCOME TO QUIZTOPIA ▬◄ ░▒▓██");
         window.location.href = "Sign_In.html";
-        formSignUp.reset();
-        return;
-     }
+        return true;
 
-     else if (!(resultUserName || resultUserEmail)) {
-        if(!resultUserName)
-        alert('⚠️ VALIDATION ERROR: Username is already exists or this email address is already registered. Please log in or use a different email address or username.');
-    }
-        
-    formSignUp.reset();
+
+
+          
 
 
     }
@@ -181,22 +277,47 @@ try {
         const email = event.target.email.value;
         const password = event.target.password.value;
 
+        if(email == ''){
+            emailBorder.style.border = '2px solid red';
+            warningEm.textContent = 'Email is required';
+        }
+
+        else if(password == ''){
+            passwordBorder.style.border = '2px solid red';
+            warningP.textContent = 'Password is required';
+        }
+
         const user = Users.signInCheck(email, password);
+        console.log(user[0] && user[1] && user[2]);
 
+        warningEm.textContent = '';
+        warningPass.textContent = '';
+        emailBorder.style.border = '2px solid #1f14ee66';
+        passwordBorder.style.border = '2px solid #1f14ee66';
 
-        sessionStorage.setItem('UserSession', JSON.stringify(user));
-
-        if (user) {
+        
+        sessionStorage.setItem('UserSession', JSON.stringify(user[0]));
+        
+        if (user[0] && user[1] && user[2]) {
             window.location.href = "WelcomePage.html";
         }
-        else {
-            alert('❗️ Username or Password is wrong.')
-        }
-  
+  else{
+    if(!user[2])
+    {passwordBorder.style.border = '2px solid red';
+    warningP.textContent = 'Wrong Password';}
+
+    else if(!user[1])
+    {emailBorder.style.border = '2px solid red';
+    warningEm.textContent = 'Wrong Email';}
+
+
+}
     });
 
 } catch (errMsg) {}
 
 /* End Sign In Pages*/
 
+let warningEm = document.getElementById('warningEmail');
+let warningPass = document.getElementById('warningPassword');
 

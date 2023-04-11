@@ -1,8 +1,9 @@
+
 /* start time */
 
 let clockTime = "";
 let clock;
-let quizDuration = 60 * 1;
+let quizDuration = 60 * 5;
 
 function startTimer(duration, display) {
 
@@ -27,7 +28,7 @@ function startTimer(duration, display) {
             clockTime = minutes + ":" + seconds;
 
 
-            StopTimer();
+            stopTimer();
             clearInterval(clock);
 
         }
@@ -119,15 +120,21 @@ let score = 0;
 
 let counterNumber = 0;
 let counterCorrectAnswer = 0;
+let questionNumber = document.getElementById("countNum");
 
 
-const circles = document.querySelectorAll(".circle");
-circles[counterNumber].classList.add("active");
+
+const lines = document.querySelectorAll(".line");
+lines[counterNumber].classList.add("active");
 
 const nextQuestion = document.getElementById("next");
 
 let arrQuestions = Questions.getQuestions(user.examType);
+
 Questions.setAnswersInLocalStorage(arrQuestions);
+
+
+console.log(arrQuestions);
 
 function loadQuiz () {
     const questions = arrQuestions[counterQuestion];
@@ -141,14 +148,16 @@ function loadQuiz () {
     choiceA.textContent = questions.a;
     choiceB.textContent = questions.b;
     choiceC.textContent = questions.c;
+    questionNumber.textContent = counterQuestion + 1;
 }
 
 function getSelected () {
-    const answersElement = document.querySelectorAll(".input");
-
+    const answersElement = document.querySelectorAll("input");
+    
     let answer = undefined;
 
     answersElement.forEach( (answerElement) => {
+        
         if (answerElement.checked) {
             answer = answerElement;
         }
@@ -156,6 +165,7 @@ function getSelected () {
 
     return answer;
 }
+
 
 loadQuiz ();
 
@@ -168,6 +178,7 @@ nextQuestion.addEventListener("click",  event => {
     const answer = getSelected();
 
     let answerValue = answer.value;
+    console.log(answerValue);
 
     if (answer) {
         
@@ -217,27 +228,31 @@ nextQuestion.addEventListener("click",  event => {
                     question: arrQuestions[counterQuestion].question,
                     UserAnswer: arrQuestions[counterQuestion].c, status: false
                 });
+         
             }
         }
-        
-        
+
+        if (questionNumber.innerHTML == "4")
+        {
+            nextQuestion.textContent = "Submit";
+        }
         counterQuestion++;
 
         if (counterQuestion < arrQuestions.length) {
             loadQuiz();
         }
         else {
-            StopTimer();
+            
+            stopTimer();
         }
     }
 
     counterNumber++;
 
-    circles[counterNumber].classList.remove("active");
-    circles[counterNumber].classList.add("active");
+    lines[counterNumber].classList.add("active");
 });
 
-function StopTimer(){
+function stopTimer(){
 
     let user_results = {result: '', correctAnswer: 0, incorrectAnswer: 0};
 
@@ -253,7 +268,7 @@ function StopTimer(){
     else
         user_results.result = "fail";
 
-    sessionStorage.setItem('UserInformations', JSON.stringify(arrAnswers));
+    sessionStorage.setItem('UserInformation', JSON.stringify(arrAnswers));
     sessionStorage.setItem('UserInformationsResult', JSON.stringify(user_results));
 
     clearInterval(clock);
