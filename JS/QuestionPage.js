@@ -1,14 +1,19 @@
 
 /* start time */
 
+let clockTime = "";
+let clock;
+let quizDuration = 60 * 5;
+
 function startTimer(duration, display) {
 
     let timer = duration;
-    let minutes
+    let minutes;
     let seconds;
 
 
     clock = setInterval(function () {
+
         minutes = parseInt(timer / 60, 10);
         seconds = parseInt(timer % 60, 10);
 
@@ -23,23 +28,14 @@ function startTimer(duration, display) {
             clockTime = minutes + ":" + seconds;
 
 
-            window.location.href = '../Pages/ResultPage.html'; 
+            stopTimer();
             clearInterval(clock);
 
         }
     }, 1000);
 }
 
-let clockTime = "";
-let clock;
-let quizDuration = 60 * 1;
-let stopbtn;
-
-stopbtn = document.getElementById('stop');
 display = document.getElementById('time');
-
-
-
 
 startTimer(quizDuration, display);
 
@@ -114,12 +110,6 @@ class Questions {
     static getAnswersFromLocalStorage() {
         return JSON.parse(localStorage.arrQuestions);
     }
-
-    static getResults(Counter) {
-        if (Counter <= 2) 
-            return "Pass";
-        return "Fail";
-    }
 }
 
 let user = JSON.parse(sessionStorage.UserSession);
@@ -130,19 +120,21 @@ let score = 0;
 
 let counterNumber = 0;
 let counterCorrectAnswer = 0;
+let questionNumber = document.getElementById("countNum");
 
 
-const circles = document.querySelectorAll(".circle");
+
+const lines = document.querySelectorAll(".line");
+lines[counterNumber].classList.add("active");
+
 const nextQuestion = document.getElementById("next");
-circles[counterNumber].classList.add("active");
-
-
 
 let arrQuestions = Questions.getQuestions(user.examType);
+
 Questions.setAnswersInLocalStorage(arrQuestions);
 
-const questionForm = document.getElementById("questionForm");
 
+console.log(arrQuestions);
 
 function loadQuiz () {
     const questions = arrQuestions[counterQuestion];
@@ -156,16 +148,16 @@ function loadQuiz () {
     choiceA.textContent = questions.a;
     choiceB.textContent = questions.b;
     choiceC.textContent = questions.c;
+    questionNumber.textContent = counterQuestion + 1;
 }
 
 function getSelected () {
-    const answersElement = document.querySelectorAll(".input");
-
-
-
+    const answersElement = document.querySelectorAll("input");
+    
     let answer = undefined;
 
     answersElement.forEach( (answerElement) => {
+        
         if (answerElement.checked) {
             answer = answerElement;
         }
@@ -173,6 +165,7 @@ function getSelected () {
 
     return answer;
 }
+
 
 loadQuiz ();
 
@@ -185,8 +178,8 @@ nextQuestion.addEventListener("click",  event => {
     const answer = getSelected();
 
     let answerValue = answer.value;
-
     console.log(answerValue);
+
     if (answer) {
         
         if (answer.id === arrQuestions[counterQuestion].correctAnswer) {
@@ -235,44 +228,49 @@ nextQuestion.addEventListener("click",  event => {
                     question: arrQuestions[counterQuestion].question,
                     UserAnswer: arrQuestions[counterQuestion].c, status: false
                 });
+         
             }
         }
-        
-        
+
+        if (questionNumber.innerHTML == "4")
+        {
+            nextQuestion.textContent = "Submit";
+        }
         counterQuestion++;
 
         if (counterQuestion < arrQuestions.length) {
             loadQuiz();
         }
         else {
-            let user_results = {result: '', correctAnswer: 0, incorrectAnswer: 0};
-
-            arrAnswers.forEach( element => {
-                if(element.status)
-                    user_results.correctAnswer++
-                else
-                    user_results.incorrectAnswer++
-            });
-
-            if (user_results.correctAnswer >= 3)
-                user_results.result = "pass"
-            else
-                user_results.result = "fail"
-
-            sessionStorage.setItem('UserInformations', JSON.stringify(arrAnswers));
-            sessionStorage.setItem('UserInformationsResult', JSON.stringify(user_results));
-
-            StopTimer();
+            
+            stopTimer();
         }
     }
 
     counterNumber++;
 
-    circles[counterNumber].classList.remove("active");
-    circles[counterNumber].classList.add("active");
+    lines[counterNumber].classList.add("active");
 });
 
-function StopTimer(){
+function stopTimer(){
+
+    let user_results = {result: '', correctAnswer: 0, incorrectAnswer: 0};
+
+    arrAnswers.forEach( element => {
+        if(element.status)
+            user_results.correctAnswer++
+        else
+            user_results.incorrectAnswer++
+    });
+
+    if (user_results.correctAnswer >= 3)
+        user_results.result = "pass";
+    else
+        user_results.result = "fail";
+
+    sessionStorage.setItem('UserInformation', JSON.stringify(arrAnswers));
+    sessionStorage.setItem('UserInformationsResult', JSON.stringify(user_results));
+
     clearInterval(clock);
     window.location.href = '../Pages/ResultPage.html'; 
 }
