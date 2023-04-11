@@ -1,14 +1,18 @@
-
 /* start time */
+
+let clockTime = "";
+let clock;
+let quizDuration = 60 * 1;
 
 function startTimer(duration, display) {
 
     let timer = duration;
-    let minutes
+    let minutes;
     let seconds;
 
 
     clock = setInterval(function () {
+
         minutes = parseInt(timer / 60, 10);
         seconds = parseInt(timer % 60, 10);
 
@@ -23,23 +27,14 @@ function startTimer(duration, display) {
             clockTime = minutes + ":" + seconds;
 
 
-            window.location.href = '../Pages/ResultPage.html'; 
+            StopTimer();
             clearInterval(clock);
 
         }
     }, 1000);
 }
 
-let clockTime = "";
-let clock;
-let quizDuration = 60 * 1;
-let stopbtn;
-
-stopbtn = document.getElementById('stop');
 display = document.getElementById('time');
-
-
-
 
 startTimer(quizDuration, display);
 
@@ -114,12 +109,6 @@ class Questions {
     static getAnswersFromLocalStorage() {
         return JSON.parse(localStorage.arrQuestions);
     }
-
-    static getResults(Counter) {
-        if (Counter <= 2) 
-            return "Pass";
-        return "Fail";
-    }
 }
 
 let user = JSON.parse(sessionStorage.UserSession);
@@ -133,16 +122,12 @@ let counterCorrectAnswer = 0;
 
 
 const circles = document.querySelectorAll(".circle");
-const nextQuestion = document.getElementById("next");
 circles[counterNumber].classList.add("active");
 
-
+const nextQuestion = document.getElementById("next");
 
 let arrQuestions = Questions.getQuestions(user.examType);
 Questions.setAnswersInLocalStorage(arrQuestions);
-
-const questionForm = document.getElementById("questionForm");
-
 
 function loadQuiz () {
     const questions = arrQuestions[counterQuestion];
@@ -160,8 +145,6 @@ function loadQuiz () {
 
 function getSelected () {
     const answersElement = document.querySelectorAll(".input");
-
-
 
     let answer = undefined;
 
@@ -186,7 +169,6 @@ nextQuestion.addEventListener("click",  event => {
 
     let answerValue = answer.value;
 
-    console.log(answerValue);
     if (answer) {
         
         if (answer.id === arrQuestions[counterQuestion].correctAnswer) {
@@ -245,23 +227,6 @@ nextQuestion.addEventListener("click",  event => {
             loadQuiz();
         }
         else {
-            let user_results = {result: '', correctAnswer: 0, incorrectAnswer: 0};
-
-            arrAnswers.forEach( element => {
-                if(element.status)
-                    user_results.correctAnswer++
-                else
-                    user_results.incorrectAnswer++
-            });
-
-            if (user_results.correctAnswer >= 3)
-                user_results.result = "pass"
-            else
-                user_results.result = "fail"
-
-            sessionStorage.setItem('UserInformations', JSON.stringify(arrAnswers));
-            sessionStorage.setItem('UserInformationsResult', JSON.stringify(user_results));
-
             StopTimer();
         }
     }
@@ -273,6 +238,24 @@ nextQuestion.addEventListener("click",  event => {
 });
 
 function StopTimer(){
+
+    let user_results = {result: '', correctAnswer: 0, incorrectAnswer: 0};
+
+    arrAnswers.forEach( element => {
+        if(element.status)
+            user_results.correctAnswer++
+        else
+            user_results.incorrectAnswer++
+    });
+
+    if (user_results.correctAnswer >= 3)
+        user_results.result = "pass";
+    else
+        user_results.result = "fail";
+
+    sessionStorage.setItem('UserInformations', JSON.stringify(arrAnswers));
+    sessionStorage.setItem('UserInformationsResult', JSON.stringify(user_results));
+
     clearInterval(clock);
     window.location.href = '../Pages/ResultPage.html'; 
 }
