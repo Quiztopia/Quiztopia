@@ -15,15 +15,7 @@ The Quiz will be timed. If you fail to complete the quiz before the timer runs o
   * Ali-Elterawe
   * Abdulrahman Al-haleme
   * Amani Zyoud
-
-* #### Project Team ![](images/teamwork.png)
-  * Issam Addi
-  * Bushra Abu Rahma
-  * Omar Hassouna
-  * Amer Khawalda
-  * Ali-Elterawe
-  * Abdulrahman Al-haleme
-  * Amani Zyoud
+  
 
 ##### **⚙️ TOOLS**
    * **HTML  ![](images/html-5.png)**
