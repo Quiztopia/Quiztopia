@@ -5,43 +5,39 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/CSS/QuestionStyle.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Righteous' rel='stylesheet'>
+
+    <link rel="shortcut icon" href="../images/QyizTopiaIcon.icon">
+    <link rel="stylesheet" href="../CSS/QuestionStyle.css">
     <title>Quiz Questions</title>
 </head>
 
 <body>
 
-    <div class="hero-img">
+    <div class="hero">
 
-        <!-- section container -->
         <div class="container">
-            <!-- section header -->
-        
-            <!-- section header -->
-            <!-- section containerQouz -->
-            <div class="containerQouz">
-                <!-- section number-Question -->
-                <div class="number-Question">
-                    <!-- cont-Question -->
-                    <div class="cont-Question">
+            
+            <div class="container-quiz">
+                
+                <div class="number-question">
+                    
+                    <div class="counter-question">
                         <span id="countNum">0</span><span>/5</span>
                     </div>
 
-                    <!-- cont-Question -->
-
-                    <!-- section timer -->
+                    
                     <div class="container-timer">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" id="svg-icon"><path d="M11 6v8h7v-2h-5v-6h-2zm-8.4 9.397l-1.799.906c-.302-.784-.521-1.607-.652-2.46l1.998-.159c.1.59.253 1.162.453 1.713zm4.393 7.501l.669-1.899c-.549-.265-1.068-.577-1.555-.933l-1.413 1.443c.708.545 1.478 1.012 2.299 1.389zm-5.319-4.795c.44.741.956 1.43 1.539 2.058l1.404-1.433c-.431-.471-.814-.982-1.149-1.528l-1.794.903zm10.322-18.103c-2.79 0-5.349.964-7.385 2.562l-2.183-2.183-1.356 7.013 7.015-1.354-2.05-2.049c1.666-1.245 3.724-1.989 5.959-1.989 5.516 0 10.003 4.486 10.003 10s-4.487 10-10.003 10c-.848 0-1.668-.118-2.455-.317l-.665 1.894c.996.267 2.039.423 3.12.423 6.629 0 12.004-5.373 12.004-12s-5.375-12-12.004-12zm-11.996 11.849l2.015-.161c.027-.703.125-1.386.288-2.047h-2.076c-.142.714-.217 1.453-.227 2.208z"/></svg>
+                        <svg class="timer-icon" xmlns="http://www.w3.org/2000/svg" width="40" viewBox="0 0 24 24">
+                            <path
+                                d="M11 6v8h7v-2h-5v-6h-2zm-8.4 9.397l-1.799.906c-.302-.784-.521-1.607-.652-2.46l1.998-.159c.1.59.253 1.162.453 1.713zm4.393 7.501l.669-1.899c-.549-.265-1.068-.577-1.555-.933l-1.413 1.443c.708.545 1.478 1.012 2.299 1.389zm-5.319-4.795c.44.741.956 1.43 1.539 2.058l1.404-1.433c-.431-.471-.814-.982-1.149-1.528l-1.794.903zm10.322-18.103c-2.79 0-5.349.964-7.385 2.562l-2.183-2.183-1.356 7.013 7.015-1.354-2.05-2.049c1.666-1.245 3.724-1.989 5.959-1.989 5.516 0 10.003 4.486 10.003 10s-4.487 10-10.003 10c-.848 0-1.668-.118-2.455-.317l-.665 1.894c.996.267 2.039.423 3.12.423 6.629 0 12.004-5.373 12.004-12s-5.375-12-12.004-12zm-11.996 11.849l2.015-.161c.027-.703.125-1.386.288-2.047h-2.076c-.142.714-.217 1.453-.227 2.208z" />
+                        </svg>
                         <span class="time" id="time">00:00</span>
                     </div>
-                    <!-- section timer -->
+                    
 
                 </div>
-                <!-- section number-Question -->
 
-                <!-- section progress-line -->
                 <div class="progress-line">
                     <div class="line"></div>
                     <div class="line"></div>
@@ -49,116 +45,49 @@
                     <div class="line"></div>
                     <div class="line"></div>
                 </div>
-                <!-- section progress-line -->
 
-                <div class="Container-Question">
-                    <div class="qs" id="question">
-                        <h1>What is the meaning of UI UX Design ?</h1>
+
+                <div class="container-Question">
+                    <div class="question" id="question">
+                        <h1></h1>
                     </div>
-                    <div class="container-choise" >
+                    <div class="container-choise">
                         <div class="container-anowser">
                             <form id="questionForm">
                                 <div class="parent">
-                                    <label><input checked='true' id="a" value="a" type="radio" class="radio" name="answers" placeholder="A"/><span>A</span></label>
-                                    <label for="a" id="answerA"></label>
+                                    <label><input checked='true' id="a" value="a" type="radio" class="radio"
+                                            name="answers" placeholder="A" /><span>A</span></label>
+                                    <label class="answer" for="a" id="answerA"></label>
                                 </div>
                                 <div class="parent">
-                                    <label><input id="b" value="b" type="radio" class="A" name="answers"/><span>B</span></label>
-        
-                                    <label for="b" id="answerB"></label>
+                                    <label><input id="b" value="b" type="radio" class="A"
+                                            name="answers" /><span>B</span></label>
+
+                                    <label class="answer" for="b" id="answerB"></label>
                                 </div>
                                 <div class="parent">
-                                    <label><input id="c" value="c" type="radio" class="A" name="answers"/><span>C</span></label>
-                                    <label for="c" id="answerC"></label>
+                                    <label><input id="c" value="c" type="radio" class="A"
+                                            name="answers" /><span>C</span></label>
+                                    <label class="answer" for="c" id="answerC"></label>
                                 </div>
-        
 
-                            <div class="container-next">
 
-                                <button id="next" type="submit" class="next">NEXT<i class='bx bx-chevron-right'></i></button>
-            
-                            </div>
+                                <div class="container-next">
+                                    <button id="next" type="submit" class="next">NEXT</button>
+                                </div>
                             </form>
                         </div>
                     </div>
                 </div>
-                <!-- 000000 -->
-              
+                
             </div>
-            <!-- section containerQouz -->
+            
         </div>
-        <!-- section container -->
+        
     </div>
 
-    <script>
-
-        const New = {
-                        status: 'success',
-                        title: '',
-                        content: '',
-                        alert: function ({ status, title, content, confirmbtn = true }) {
-                        var title;
-                        var status;
-                        var content;
-                        var modal = document.createElement('section');
-                        modal.setAttribute('class', 'alert_modal');
-                        document.body.append(modal);
-                        var alert = document.createElement('div');
-                        alert.setAttribute('class', 'alert_container');
-                        modal.appendChild(alert);
-                        alert.innerHTML = `
-                        <div class="alert_heading"></div>
-                        <div class="alert_details">
-                        <h2>
-                            ${title}
-                        </h2>
-                        <p>
-                            ${content}
-                        </p>
-                        </div>
-                        <div class="alert_footer">
-                        </div> ` ;
-
-
-
-                var alert_heading = document.querySelector('.alert_heading');
-                var alert_footer = document.querySelector('.alert_footer');
-
-                if (status == '' || status == 'success') {
-                    alert_footer.innerHTML = `<span class="close" title="Ok">Continue</span>`;
-                    document.querySelector('.alert_details > h2').style.color = '#1FB397';
-                } else if (status == 'danger' || status == 'error') {
-                    alert_heading.innerHTML = ``;
-                    alert_footer.innerHTML = `<span class="close" title="Ok">Continue</span>`;
-                    document.querySelector('.alert_details > h2').style.color = '#797979';
-                } else if (status == 'info' || status == 'confirm') {
-                    alert_heading.innerHTML = `<svg width="150" height="150" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="white" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="60;0"/></path><path stroke-dasharray="20" stroke-dashoffset="20" d="M8.99999 10C8.99999 8.34315 10.3431 7 12 7C13.6569 7 15 8.34315 15 10C15 10.9814 14.5288 11.8527 13.8003 12.4C13.0718 12.9473 12.5 13 12 14"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.4s" values="20;0"/></path></g><circle cx="12" cy="17" r="1" fill="white" fill-opacity="0"><animate fill="freeze" attributeName="fill-opacity" begin="1s" dur="0.2s" values="0;1"/></circle></svg>`;
-                    confirmbtn == true ?
-                    alert_footer.innerHTML = `<span class="accept" title="I approve">I approve</span> <span class="close" title="I refuse">I refuse</span>`:
-                    alert_footer.innerHTML = `<span class="close" title="Ok">Continue</span>`;
-                    document.querySelector('.alert_details > h2').style.color = '#484B95';
-                }
-
-                document.querySelector('.alert_footer .close').addEventListener('click', function () {
-                    alert.remove();
-                    modal.remove();
-                })
-               
-            }
-            
-            }
-
-         New.alert({
-            status: 'info',
-            title: 'Quiz Instructions',
-            content: '     10 point awarded for a correct answer and no marks for a incorrect answer You have to choose an answer before clicking next button. Click submit when you finish the Quiz. You can not go back to the pervious Question.',
-            confirmbtn: false
-        })
-
-    </script>
-
-
-<script src="../JS/QuestionPage.js"></script>
+    <script src="../JS/QuestionPage.js"></script>
 
 </body>
+
 </html>
